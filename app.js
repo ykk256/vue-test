@@ -1,7 +1,7 @@
 var items = [
     {
         name:'鉛筆',
-        price:1000 ,
+        price:100 ,
         quantity:1
     },
     {
@@ -43,6 +43,13 @@ var vm = new Vue({
         },
         canBuy: function() {
             return this.totalPrice >= 1000
+        },
+        errorMessageStyle: function() {
+            // canBuyが偽の時に赤く表示する。
+            return {
+                border: this.canBuy ? '' :'1px solid',
+                color: this.canBuy ? '' :'red'
+            }
         }
     }
 })
