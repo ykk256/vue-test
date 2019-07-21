@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>コンポーネント</title>
+
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="fruits-list">
+    <fruits-list-title></fruits-list-title>
+</div>
+<script>
+        Vue.component('fruits-list-title',{
+            template: '<h1>フルーツ一覧</h1>'
+        })
+    
+    
+        new Vue({
+            el: '#fruits-list'
+        })
+</script>
