@@ -3,20 +3,28 @@
 
 <script src="https://unpkg.com/vue@2.5.17"></script>
 
-<div id="app">
-    <item-desc v-bind:item-name='myItem'></item-desc>
+<div id="fruits-componet">
+    <ol>
+        <fruits-item-name v-for="fruits in fruitsItems" :key="fruits.name" :fruits-item="fruits"></fruits-item-name>
+    </ol>
 </div>
 <script>
-        Vue.component('item-desc',{
+        Vue.component('fruits-item-name',{
             props: {
-                itemName: {
-                    type:String
+                fruitsItem: {
+                    type: Object, // オブジェクトかどうか
+                    required: true // このコンポーネントには必須なのでtrue
                 }
             },
-            template: '<p>{{itemName}}は便利です。</p>'
+            template: '<li>{{fruitsItem.name}}</li>'
         })
         new Vue({
-            el: '#app',
-            data: {myItem:'pen'}
+            el: '#fruits-componet',
+            data: {
+                fruitsItems: [
+                    {name: '梨'},
+                    {name: 'イチゴ'}
+                ]
+            }
         })
 </script>
